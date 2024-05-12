@@ -7,7 +7,7 @@
 //Evenimentul Studenti in fata companiilor ma pot conecta cu routerul la internet(cablu)
 
 //Create a new web socket
-const socket = new WebSocket('ws://192.168.1.252/ws');
+const socket = new WebSocket('wss://192.168.1.252/ws');
 
 //Variables
 let newArray = [];
