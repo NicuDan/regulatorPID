@@ -1,0 +1,339 @@
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* overflow-x: hidden; */
+}
+* {
+  font-size: 30px;
+}
+.container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header'
+    'nav mainWindow mainWindow mainWindow mainWindow '
+    'nav mainWindow mainWindow mainWindow mainWindow'
+    'nav mainWindow mainWindow mainWindow mainWindow'
+    'footer footer footer footer footer';
+  background-color: #363636;
+
+  color: white;
+  width: 100vw;
+  height: 100vh;
+}
+.mainWindow {
+  grid-area: mainWindow;
+  width: 85vw;
+  height: 60vh;
+}
+nav {
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  width: 15vw;
+  background-color: #25285e;
+  box-shadow: inset 0px 7px 3px -3px rgba(0, 0, 0, 0.5);
+}
+.chartContainer {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+}
+form {
+  box-shadow: inset 0px 7px 3px -3px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+  padding: 1vw;
+  background-color: #363636;
+  justify-content: space-between;
+}
+button {
+  background-color: #bbb; /* Default button color */
+  color: #fff; /* Text color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10vh;
+  transition: background-color 0.3s; /* Smooth transition on hover */
+}
+header {
+  grid-area: header;
+  background-color: #25285e;
+  display: flex;
+  color: #3498db;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: space-between;
+  text-shadow: 0 4px 6px rgba(9, 9, 9, 0.3); /* Optional box shadow */
+}
+.status {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.status-area {
+  background-color: #ff5733;
+  border: #bbb solid 0.1vw;
+  border-radius: 50%;
+  margin: 1vw;
+  padding: 0.8vw;
+  text-align: center;
+}
+#console {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  text-align: center;
+  margin: 1vw;
+}
+.console-area {
+  background-color: #363636;
+  border: white solid 0.2vw;
+  border-radius: 1vw;
+  margin-top: 8vh;
+  width: 70vw;
+  height: 100%;
+  align-self: center;
+  justify-self: center;
+  overflow: auto;
+  font-size: 14px;
+}
+#receivedData {
+  color: #fff;
+}
+footer {
+  box-shadow: 0px -7px 3px -3px rgba(0, 0, 0, 0.5);
+  grid-area: footer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #25285e;
+  color: #3498db;
+}
+footer > p {
+  margin: 0;
+}
+.transparent {
+  background-color: transparent;
+  margin: 0.5vw;
+}
+label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #3498db;
+}
+input[type='text'],
+input[type='number'] {
+  width: 30vw;
+  padding: 10px;
+  color: #3498db;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  background-color: #363636;
+}
+.header-title {
+  font-size: 48px;
+  align-self: center;
+}
+#displayArray {
+  font-size: 20px;
+}
+.copy {
+  text-align: center;
+}
+#myChart {
+  background-color: #363636;
+  border: white solid 0.2vw;
+  border-radius: 1vw;
+  margin-top: 8vh;
+  width: 70vw;
+  height: 100%;
+  align-self: center;
+  justify-self: center;
+}
+#switchChart,
+.copy {
+  background-color: transparent;
+  color: white;
+  margin: 0.5vw;
+}
+.succes-copy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  align-self: center;
+  background-color: #3498db;
+  color: white;
+  padding: 2vh;
+  margin: 1vh;
+  border: 2px solid transparent;
+  border-radius: 0.3vw;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.speedLabel {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  align-items: center;
+  height: 3vh;
+}
+#rangeSpeed {
+  width: 21.5vw;
+  height: 1.5vw;
+  appearance: none;
+  background: linear-gradient(
+    to right,
+    #3498db 0%,
+    #3498db 50%,
+    #363636 50%,
+    #363636 100%
+  );
+  outline: none;
+  border-radius: 15px;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 5);
+}
+#rangeSpeed::-webkit-slider-thumb {
+  appearance: none;
+  width: 2.3vw;
+  height: 2.3vw;
+  border-radius: 50%;
+  background-color: #3498db;
+  cursor: pointer;
+  border: 0.2vw solid #25285e;
+}
+#Speed {
+  width: 3vw;
+}
+.containerPid {
+  display: flex;
+  flex-direction: column;
+}
+.labels {
+  display: flex;
+  gap: 10vw;
+}
+.inputs {
+  display: flex;
+  gap: 0.1vw;
+}
+.inputs > input {
+  width: 9vw;
+}
+nav > button {
+  background-color: transparent;
+  padding: 2.5vh 1vw;
+  margin-top: 0;
+  border-radius: 0;
+}
+nav > button:first-child {
+  margin-top: 1vh;
+}
+nav > button:hover {
+  background-color: #3498db;
+  border-radius: 0;
+}
+.mainWindow1 {
+  display: none;
+  justify-self: center;
+  width: 85vw;
+  height: 60vh;
+  box-shadow: inset 0px 7px 3px -3px rgba(0, 0, 0, 0.5);
+}
+.canvasContainer {
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10.5vw;
+}
+.mainWindow2 {
+  display: none;
+  justify-self: center;
+  width: 85vw;
+  height: 60vh;
+  box-shadow: inset 0px 7px 3px -3px rgba(0, 0, 0, 0.5);
+}
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px white;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3498db;
+}
+.mainWindow4 {
+  display: none;
+  grid-area: '';
+  width: 85vw;
+  height: 60vh;
+  box-shadow: inset 0px 7px 3px -3px rgba(0, 0, 0, 0.5);
+}
+.containerAbout {
+  margin: 5vh 5vw;
+}
+.headerRight {
+  display: grid;
+  grid-template-areas:
+    'title status'
+    'title working';
+  justify-content: flex-end;
+  align-items: center;
+}
+.headerRight > .title {
+  margin: 0;
+}
+.mainWindow3 {
+  display: none;
+  grid-area: '';
+  width: 85vw;
+  height: 60vh;
+  box-shadow: inset 0px 7px 3px -3px rgba(0, 0, 0, 0.5);
+}
+#myChart2 {
+  background-color: #363636;
+  border: white solid 0.2vw;
+  border-radius: 1vw;
+  margin-top: 8vh;
+  width: 70vw;
+  height: 100%;
+  align-self: center;
+  justify-self: center;
+}
+.canvasContainer2 {
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10.5vw;
+}

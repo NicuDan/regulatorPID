@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Regulator PID</title>
+    <link rel="icon" type="image/png" href="Materials/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header-title">Regulator PID</div>
+        <div class="status">
+         
+          <div class="headerRight"> <div class="title">Status</div><div class="status-area"></div><div class="title">Motor</div><i id="rotate" class="fa fa-cog fa-fw" style="margin-left:7px; " ></i></div>
+          
+        </div>
+      </header>
+      <nav>
+        <button class="EditPID">
+          <i class="fa fa-pencil" aria-hidden="true"></i> Edit Variables
+        </button>
+        <button class="ResultsButton">
+          <i class="fa fa-line-chart" aria-hidden="true"></i> Results
+        </button>
+        <button class="Error">
+          <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Error
+        </button>
+        <button class="ConsoleButton">
+          <i class="fa fa-window-maximize" aria-hidden="true"></i> Console
+        </button>
+        <button class="AboutButton">
+          <i class="fa fa-question-circle" aria-hidden="true"></i> About
+        </button>
+      </nav>
+      <div class="mainWindow">
+        <form>
+          <div class="title">Data</div>
+          <label>Desired speed(rpm):</label>
+          <div class="speedLabel">
+            <input
+              type="range"
+              name="rangeSpeed"
+              id="rangeSpeed"
+              min="0"
+              max="2150"
+            />
+            <input
+              type="text"
+              id="Speed"
+              placeholder="Speed"
+              value="1075"
+              min="0"
+              max="2150"
+              required
+            />
+            <p>RPM</p>
+          </div>
+          <div class="containerPid">
+            <div class="labels">
+              <label>P:</label><label>I:</label><label>D:</label>
+            </div>
+            <div class="inputs">
+              <input type="text" id="P" placeholder="P" value="1" />
+
+              <input type="text" id="I" placeholder="I" value="1" />
+
+              <input type="text" id="D" placeholder="D" value="0.1" />
+            </div>
+          </div>
+          <label>Period of time(in seconds):</label>
+          <input type="number" id="Time" placeholder="Time" value="30" />
+          <label>Sampling</label>
+          <input
+            type="number"
+            step="0.01"
+            id="Samples"
+            placeholder="Esantionari"
+            value="0.2"
+          />
+          <button id="sendToArduino">Send Data</button>
+        </form>
+      </div>
+      <div class="mainWindow1">
+        <div class="chartContainer">
+          <div class="canvasContainer">
+            <canvas id="myChart"></canvas>
+          </div>
+
+          <div class="succes-copy">Copied to clipboard!</div>
+        </div>
+      </div>
+      <div class="mainWindow2">
+        <div id="console">
+          <div class="console-area">
+            <div id="receivedData">>></div>
+          </div>
+        </div>
+      </div>
+      <div class="mainWindow3">
+        <div class="canvasContainer2">
+          <canvas id="myChart2"></canvas>
+        </div>
+      </div>
+      <div class="mainWindow4">
+        <div class="containerAbout">
+          <h4>How to use?</h4>
+          <p>
+            <i>
+              <p></p><i class="fa fa-cog fa-spin fa-fw" ></i></i>Firstly power
+              the installation to a socket.After that the system will connect
+              automatically to the local WI-FI.After that access this page.Make
+              sure the <b>STATUS</b> is ON(green color) on top right.<p></p><br /><i class="fa fa-cog fa-spin fa-fw" ></i>Now you can Edit the variables as you see fit for making a PID
+              regulator with your values, add a duraction and a sample
+              time.After that simply press the <b>Send Data</b> button and the
+              data you entered will be sent to the system and the motor will
+              start.<p></p><br /><i class="fa fa-cog fa-spin fa-fw" ></i>On
+              results page you will see the stability of the system,on error
+              page the system error, finally if you want to see the exact values
+              head over to the console page.</i
+            >
+          </p>
+        </div>
+      </div>
+      <footer>
+        <p>Transilvania University</p>
+        <p>Project Title: Regulator PID</p>
+        <p>Project by Nicu Dan-Costin</p>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
